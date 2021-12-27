@@ -29,7 +29,7 @@ runs:
   using: "composite"
   steps:
     - name: Stop Application Pool
-      shell: pwsh
+      shell: powershell
       run: >
         ${{ github.action_path }}/Scripts/Set-ApplicationPool.ps1
         StopAppPool
@@ -38,7 +38,7 @@ runs:
         ${{ inputs.server-username }}
         ${{ inputs.server-password }}
     - name: Deploy Application
-      shell: pwsh
+      shell: powershell
       run: >
         ${{ github.action_path }}/Scripts/Deploy-ApplicationPackage.ps1
         ${{ inputs.source-path }}
@@ -49,7 +49,7 @@ runs:
         ${{ inputs.server-password }}
         ${{ inputs.target-delete }}
     - name: Start Application Pool
-      shell: pwsh
+      shell: powershell
       run: >
         ${{ github.action_path }}/Scripts/Set-ApplicationPool.ps1
         StartAppPool
